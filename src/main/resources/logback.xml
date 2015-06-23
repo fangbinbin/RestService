@@ -1,0 +1,52 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>e:/restservice.log</File>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n
+            </pattern>
+        </encoder>
+        
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>e:/restservice.%i.log.zip
+            </FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>10</MaxIndex>
+        </rollingPolicy>
+
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>1MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!-- <logger name="org.hibernate" level="DEBUG" /> -->
+
+    <logger name="org.springframework" level="TRACE">
+    	<appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="org.springframework.transaction" level="INFO" />
+    <logger name="org.springframework.security" level="INFO" /> <!-- to debug security related issues (DEBUG) -->
+    <!-- <logger name="org.springframework.web.servlet.mvc" level="TRACE" /> --> <!-- some serialization issues are at trace level here: org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod -->
+	<logger name="org.springframework.web.servlet.mvc" level="TRACE">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+    <!-- our service -->
+    <logger name="com.fangbinbin" level="DEBUG" />
+    <!-- <logger name="com.fangbinbin" level="INFO" /> --><!-- to follow if setup is being executed -->
+
+    <root level="INFO">
+    	<appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>

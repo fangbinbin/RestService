@@ -12,6 +12,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+  	<!-- spring -->
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context</artifactId>
@@ -42,7 +43,9 @@
 		<artifactId>spring-aspects</artifactId>
 		<version>3.2.13.RELEASE</version>
 	</dependency>
-		<dependency>
+	
+	<!-- jackson -->
+	<dependency>
 		<groupId>org.codehaus.jackson</groupId>
 		<artifactId>jackson-core-asl</artifactId>
 		<version>1.9.13</version>
@@ -57,11 +60,14 @@
 		<artifactId>jackson-mapper-asl</artifactId>
 		<version>1.9.13</version>
 	</dependency>
+	
 	<dependency>
 		<groupId>jstl</groupId>
 		<artifactId>jstl</artifactId>
 		<version>1.2</version>
 	</dependency>
+	
+	<!-- logback -->
 	<dependency>
 	    <groupId>ch.qos.logback</groupId>
 	    <artifactId>logback-classic</artifactId>
@@ -76,6 +82,27 @@
 	    <groupId>ch.qos.logback</groupId>
 	    <artifactId>logback-access</artifactId>
 	    <version>${logback.version}</version>
+	</dependency>
+	
+	<!-- hibernate -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>3.6.10.Final</version>
+	</dependency>
+	
+	<!-- mysql驱动包 -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.35</version>
+	</dependency>
+	
+	<!--Druid连接池包 -->
+	<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>druid</artifactId>
+		<version>1.0.14</version>
 	</dependency>
   </dependencies>
   <build>

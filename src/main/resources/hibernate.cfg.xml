@@ -3,16 +3,15 @@
     "-//Hibernate/Hibernate Configuration DTD//EN"
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
- 
+
 <hibernate-configuration>
-    <session-factory>
-		<!-- <property name="hibernate.dialect">
+	<session-factory>
+		<property name="hibernate.dialect">
 			org.hibernate.dialect.MySQLDialect
 		</property>
 		<property name="hibernate.connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
-		Assume test is the database name
 		<property name="hibernate.connection.url">
 			jdbc:mysql://localhost:3306/hibernate
 		</property>
@@ -21,9 +20,10 @@
 		</property>
 		<property name="hibernate.connection.password">
 			123456
-		</property> -->
-		
-        <mapping class="com.fangbinbin.model.Contact" />
-    </session-factory>
-	    
+		</property>
+
+		<!-- <mapping class="com.fangbinbin.model.Contact" /> -->
+		<mapping resource="Employee.hbm.xml" />
+	</session-factory>
+
 </hibernate-configuration>
